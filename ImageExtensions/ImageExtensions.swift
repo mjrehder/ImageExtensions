@@ -29,15 +29,15 @@
 
 import UIKit
 
-#if os(macOS)
-    typealias NColor = NSColor
-    typealias NImage = NSImage
-#else
-    typealias NColor = UIColor
-    typealias NImage = UIImage
-#endif
+public extension UIImage {
+    #if os(macOS)
+        typealias NColor = NSColor
+        typealias NImage = NSImage
+    #else
+        typealias NColor = UIColor
+        typealias NImage = UIImage
+    #endif
 
-extension UIImage {
     func tint(_ color: NColor) -> NImage {
         UIGraphicsBeginImageContextWithOptions(self.size, false, self.scale)
         color.setFill()
